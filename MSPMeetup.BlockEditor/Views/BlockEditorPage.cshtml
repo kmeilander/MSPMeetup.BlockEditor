@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.BlockEditorPage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+	
+}
+
+<div class="t-block-editor-page">
+    <div class="container">
+        @Html.GetBlockListHtml(Model, "blocks")
+    </div>
+
+</div>

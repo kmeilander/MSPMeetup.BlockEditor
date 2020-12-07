@@ -1,0 +1,28 @@
+﻿@inherits UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{ var siteRoot = Model.Root(); }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/styles.css">
+
+</head>
+<body>
+
+    @Html.Partial("~/views/partials/global/globalNavigation.cshtml");
+
+    <div id="page-main" class="page-wrapper">
+        @RenderBody()
+    </div><!-- END page-main -->
+
+    @Html.Partial("global/globalFooter")
+
+    <!-- Insert Scripts Here -->
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

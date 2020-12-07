@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    var site = Model.Root();
+}
+
+
+<footer class="text-muted py-5" style="border-top:1px solid #ccc; background-color:#ccc">
+    <div class="container">
+        <div class="row pb-5">
+            <div class="col-sm-10">
+                <div class="row">
+                    @foreach (var child in Model.Root().Children)
+                    {
+
+                        var isActive = Request.Url.ToString().Contains(child.Url);
+                    <div class="col-sm-2">
+                        <a class="nav-link" href="@child.Url">
+                            @child.Name @if (isActive)
+                            {<span class="sr-only">(current)</span>}
+                        </a>
+                    </div>
+                    }
+
+             
+
+                </div>
+            </div>
+            <div class="col-sm-2 text-right">
+                <a href="#">Back to top</a>
+            </div>
+        </div>
+        <p class="small">@@2020 Emergent Software!  More legal text can go here.</p>
+
+    </div>
+</footer>

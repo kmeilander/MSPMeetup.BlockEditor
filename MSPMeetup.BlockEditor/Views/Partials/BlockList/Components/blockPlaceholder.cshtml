@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    var content = (ContentModels.BlockPlaceholder)Model.Content;
+    //var settings = (ContentModels.BlockSettings)Model.Settings;
+}
+
+<div class="c-placehlder text-center" style="background-color: lightgray; min-height:250px; border:1px solid black;">
+    <h3>@content.Headline</h3>
+</div>

@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    var site = Model.Root();
+}
+
+
+<div class="bg-light sticky-top">
+
+    <nav class="navbar navbar-expand-lg navbar-light  container ">
+        <a class="navbar-brand" href="/">Block Editor Demo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                @*TODO: These items should come out of the global navigation content model*@
+                @foreach (var child in Model.Root().Children)
+                {
+
+                    var isActive = Request.Url.ToString().Contains(child.Url);
+                    <li class="nav-item @(isActive ? "active": "")">
+                        <a class="nav-link" href="@child.Url">
+                            @child.Name @if (isActive)
+                        {<span class="sr-only">(current)</span>}
+                        </a>
+                    </li>
+                }
+
+            </ul>
+
+        </div>
+    </nav>
+</div>
